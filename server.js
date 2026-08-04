@@ -11,8 +11,8 @@ app.use(express.static(__dirname)); // HTML file serve karne ke liye
 let db;
 
 // MongoDB connect
-MongoClient.connect('mongodb://localhost:27017').then(client => {
-  db = client.db('dealwebsite');
+MongoClient.connect('mongodb+srv://kunamix_db_user:Lucky@9953@kunamix.xxx.mongodb.net/').then(client => {
+ db = client.db('dealwebsite'); 
   console.log('MongoDB Connected ✅');
   
   app.listen(3000, () => {
@@ -54,7 +54,7 @@ app.post('/complete-deal/:id', async (req, res) => {
   const deal = await db.collection('deals').findOne({ id: req.params.id });
   await db.collection('deals').updateOne(
     { id: req.params.id },
-    { $set: { status: "completed", yourUPI: "8851589873-3@ybl" } }
+    yourUPI: process.env.UPI_ID
   );
   res.json({ 
     message: "Payment Released!", 
