@@ -51,12 +51,10 @@ app.post('/accept-deal/:id', async (req, res) => {
 
 // 4. Deal Complete karke UPI dena
 app.post('/complete-deal/:id', async (req, res) => {
-  // 4. Deal Complete karke UPI dena
-app.post('/complete-deal/:id', async (req, res) => {
   const deal = await db.collection('deals').findOne({ id: req.params.id });
   await db.collection('deals').updateOne(
     { id: req.params.id },
-    { $set: { status: "completed", yourUPI: process.env.UPI_ID }// // }
+    { $set: { status: "completed", yourUPI: process.env.UPI_ID }
   );
   res.json({
     message: "Payment Released!",
