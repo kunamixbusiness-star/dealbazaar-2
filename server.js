@@ -48,17 +48,20 @@ app.post('/accept-deal/:id', async (req, res) => {
   );
   res.json({ message: "Deal Accept ho gayi!" });
 });
-
 // 4. Deal Complete karke UPI dena
 app.post('/complete-deal/:id', async (req, res) => {
-  const deal = await db.collection('deals').findOne({ id: req.params.id });
-  await db.collection('deals').updateOne(
-    { id: req.params.id },
-    { $set: { status: "completed", yourUPI: process.env.UPI_ID } }
-  );
-  res.json({
-    message: "Payment Released!",
-    yourUPI: process.env.UPI_ID,
-    yourCommission: deal.yourCommission
-  });
+  try {
+    const deal = await db.collection('deals').findOne({ id: req.params.id });
+    await db.collection('deals').updateOne(
+      { id: req.params.id },
+      { $set: { status: "completed", yourUPI: process.env.UPI_ID }
+    );
+    res.json({
+      message: "Payment Released!",
+      yourUPI: process.env.UPI_ID,
+      yourCommission: deal.yourCommission
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
