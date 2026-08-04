@@ -55,7 +55,7 @@ app.post('/complete-deal/:id', async (req, res) => {
   await db.collection('deals').updateOne(
     { id: req.params.id },
     { $set: { status: "completed", yourUPI: process.env.UPI_ID }
-  );
+     
   res.json({
     message: "Payment Released!",
     yourUPI: process.env.UPI_ID,
