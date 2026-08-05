@@ -8,9 +8,9 @@ app.use(express.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 10000;
-const MONGO_URL = process.env.MONGO_URI;
+const mongoUrl = process.env.MONGO_URL;
 const DB_NAME = "dealbazaar";
-const client = new MongoClient(MONGO_URL);
+const client = new MongoClient(mongoUrl);
 let db;
 
 // DB Connect
