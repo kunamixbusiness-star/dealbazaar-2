@@ -9,6 +9,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 10000;
 const mongoUrl = process.env.MONGO_URL;
+mongoose.connect(MONGO_URL)
 const DB_NAME = "dealbazaar";
 const client = new MongoClient(mongoUrl);
 let db;
