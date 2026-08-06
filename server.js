@@ -1,4 +1,4 @@
-@const express = require("express");
+const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -16,10 +16,10 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Test Route
 app.get("/", (req, res) => {
-  res.send("DealBazaar API is Live!");
+  res.json({ status: "DealBazaar API is Live!" });
 });
 
-// Add your routes here
+// Yaha apne routes add karna
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

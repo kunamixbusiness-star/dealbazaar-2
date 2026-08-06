@@ -1,40 +1,20 @@
 {
- HEAD
   "name": "dealbazaar",
   "version": "1.0.0",
-  "description": "DealBazaar Backend",
-
-  "name": "dealbazaar-api",
-  "version": "1.0.0",
   "description": "DealBazaar Escrow API",
-0185b88131743560029b537bf99f0142584cd38a
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
-HEAD
-  "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^8.0.0",
-    "dotenv": "^16.3.1",
-    "cors": "^2.8.5"
-  }
-}
-"engines": {
-  "node": "18.x"
-}
-
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.2",
-    "mongodb": "^6.3.0"
+    "mongoose": "^8.0.0"
   },
   "engines": {
-    "node": ">=18.x"
+    "node": "18.x"
   }
 }
-0185b88131743560029b537bf99f0142584cd38a
+
+
