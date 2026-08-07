@@ -6,7 +6,10 @@ const { MongoClient } = require('mongodb');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ["https://dealbazaar-frontend.onrender.com", "http://localhost:3000"],
+  methods: ["GET", "POST"]
+}));
 
 const PORT = process.env.PORT || 10000;
 const MONGO_URI = process.env.MONGO_URI; // 3. MONGO_URI use kar rahe hain
