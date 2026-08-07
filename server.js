@@ -13,7 +13,7 @@ app.use(cors({
 
 const PORT = process.env.PORT || 10000;
 const MONGO_URI = process.env.MONGO_URI; // 3. MONGO_URI use kar rahe hain
-const UPI_ID = process.env.UPI_ID; // 4. UPI_ID bhi yaha
+const upiLink = `upi://pay?pa=${process.env.UPI_ID}&pn=DealBazaar&am=${deal.price}&cu=INR`;
 const DB_NAME = "dealbazaar";
 
 const client = new MongoClient(MONGO_URI);
